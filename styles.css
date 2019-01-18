@@ -1,0 +1,99 @@
+.container {
+    padding: 0 200px;
+}
+
+.players-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.playing-side {
+    width: 50%;
+}
+
+.playing-side h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.health-bar {
+    width: 500px;
+    margin: 0 auto;
+    height: 50px;
+    border: 2px black solid;
+}
+
+.current-health {
+    height: calc(100% - 10px);
+    background-color: green;
+    padding-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.common-wrapper {
+    margin-top: 20px;
+    box-shadow: 0 2px 5px #bbb;
+}
+
+.control-buttons {
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn {
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.btn:focus {
+    outline: none;
+}
+
+#start-game-btn {
+    background-color: #a7ffaf;
+}
+
+#attack-btn {
+    background-color: #f87469;
+}
+
+#special-attack-btn {
+    background-color: #ffaf4e;
+}
+
+#heal-btn {
+    background-color: #77fd80;
+}
+
+#give-up-btn {
+    background-color: #fffdff;
+}
+
+ul.log {
+    list-style-type: none;
+    padding: 30px;
+}
+
+.logged-action {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18px;
+    margin: 5px 0;
+    height: 20px;
+}
+
+.player-log {
+    color: #150dd7;
+    background-color: #e5e6ff;
+}
+
+.monster-log {
+    color: #751312;
+    background-color: #ffbfc1;
+}

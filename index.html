@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monster Slayer</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <div class="container">
+
+    <div class="players-wrapper">
+      <div class="playing-side" id="player">
+        <h1>YOU</h1>
+        <div class="health-bar">
+          <div class="current-health">100</div>
+        </div>
+      </div>
+
+      <div class="playing-side" id="monster">
+        <h1>MONSTER</h1>
+        <div class="health-bar">
+          <div class="current-health">100</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="common-wrapper control-buttons">
+      <button v-if="!gameRunning" @click="gameRunning = true" class="btn" id="start-game-btn">Start new game</button>
+      <template v-else>
+        <button class="btn" id="attack-btn">Attack</button>
+        <button class="btn" id="special-attack-btn">Special attack</button>
+        <button class="btn" id="heal-btn">Heal</button>
+        <button class="btn" id="give-up-btn">Give up</button>
+      </template>
+    </div>
+
+    <ul class="common-wrapper log">
+      <li class="logged-action monster-log">Monster hits player for 7</li>
+      <li class="logged-action player-log">Player hits monster for 10</li>
+    </ul>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
