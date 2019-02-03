@@ -16,31 +16,34 @@
       <div class="playing-side" id="player">
         <h1>YOU</h1>
         <div class="health-bar">
-          <div class="current-health">100</div>
+          <div class="current-health" :style="{width: playerHealthBarWidth}">{{ playerHealth }}</div>
         </div>
       </div>
 
       <div class="playing-side" id="monster">
         <h1>MONSTER</h1>
         <div class="health-bar">
-          <div class="current-health">100</div>
+          <div class="current-health" :style="{width: monsterHealthBarWidth}">{{ monsterHealth }}</div>
         </div>
       </div>
     </div>
 
     <div class="common-wrapper control-buttons">
-      <button v-if="!gameRunning" @click="gameRunning = true" class="btn" id="start-game-btn">Start new game</button>
+      <button v-if="!gameRunning" @click="startNewGame()" class="btn" id="start-game-btn">Start new game</button>
       <template v-else>
-        <button class="btn" id="attack-btn">Attack</button>
-        <button class="btn" id="special-attack-btn">Special attack</button>
-        <button class="btn" id="heal-btn">Heal</button>
-        <button class="btn" id="give-up-btn">Give up</button>
+        <button class="btn" id="attack-btn" @click="attack">Attack</button>
+        <button class="btn" id="special-attack-btn" @click="specialAttack">Special attack</button>
+        <button class="btn" id="heal-btn" @click="heal">Heal</button>
+        <button class="btn" id="give-up-btn" @click="gameRunning = false">Give up</button>
       </template>
     </div>
 
     <ul class="common-wrapper log">
-      <li class="logged-action monster-log">Monster hits player for 7</li>
-      <li class="logged-action player-log">Player hits monster for 10</li>
+      <template v-for="logValue in logValues">
+        <li class="logged-action player-log" v-if="logValue.playerAttack">Player hits monster for {{ logValue.playerAttack }}</li>
+        <li class="logged-action player-log" v-if="logValue.playerHeal">Player heals for {{ logValue.playerHeal }}</li>
+        <li class="logged-action monster-log">Monster hits player for {{ logValue.monsterAttack }}</li>
+      </template>
     </ul>
 
   </div>
